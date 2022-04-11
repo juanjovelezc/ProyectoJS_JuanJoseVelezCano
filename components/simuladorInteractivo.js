@@ -3,6 +3,7 @@
 /* VARIABLES GLOBABLES */
 let totalAPagar = 0;
 let aLlevar;
+let xDepartamento;
 let totalxCuotas;
 /*====================*/
 
@@ -12,30 +13,54 @@ const productos = [
     nombre: "Martillo",
     precio: 12000,
     stock: 3,
+    departamento: "Herramientas",
   },
   {
     nombre: "Linterna",
     precio: 5000,
     stock: 2,
+    departamento: "Electricos",
   },
   {
     nombre: "Pala",
     precio: 20000,
     stock: 1,
+    departamento: "Herramientas",
   },
   {
     nombre: "Destornillador",
     precio: 6000,
     stock: 10,
+    departamento: "Herramientas",
   },
   {
     nombre: "Bombillo LED",
     precio: 7000,
     stock: 4,
+    departamento: "Electricos",
+  },
+  {
+    nombre: "Cemento 50kg",
+    precio: 30000,
+    stock: 10,
+    departamento: "Construcción",
+  },
+  {
+    nombre: "Arena de pega",
+    precio: 5000,
+    stock: 8,
+    departamento: "Construcción",
+  },
+  {
+    nombre: "Arena de revoque",
+    precio: 6000,
+    stock: 2,
+    departamento: "Construcción",
   },
 ];
 
 /* FUNCIONES */
+
 function deposito() {
   do {
     aLlevar = prompt(
@@ -44,90 +69,27 @@ function deposito() {
     if (aLlevar == "salir") {
       break;
     }
-    let i=0
-    do {
-      if (aLlevar === productos[i].nombre) {
-        if (productos[i].stock != 0) {
-          totalAPagar = totalAPagar + productos[i].precio;
-          console.log(totalAPagar);
+    for(const producto of productos){
+      if(producto.nombre != aLlevar){
+        alert("¡No tenemos ese producto!")
+      }
+      break
+    }
+    productos.find((p) => {
+      if(aLlevar === p.nombre){
+        if(p.stock != 0){
+          totalAPagar = totalAPagar + p.precio;
           alert(
-            `Se agregó al carrito un ${aLlevar} con un valor de ${productos[i].precio}`
+            `Se agregó al carrito un ${aLlevar} con un valor de ${p.precio}`
           );
-          productos[i].stock -= 1;
+          p.stock -= 1;
         } else {
           alert("¡No hay stock de este producto!");
         }
-      }else{
-        alert("¡No existe ese producto!")
       }
-      i++
-    }while(i< productos.length)
-    /*    switch (aLlevar) {
-      case productos[0].nombre:
-        if(productos[0].stock != 0){
-        totalAPagar = totalAPagar + productos[0].precio;
-        console.log(totalAPagar);
-        alert(
-          `Se agregó al carrito un ${aLlevar} con un valor de ${productos[0].precio}`
-        );
-        productos[0].stock-=1
-        }else{
-          alert("¡No hay stock de este producto!")
-        }
-
-        break;
-      case productos[1].nombre:
-        if(productos[1].stock !=0){
-          totalAPagar = totalAPagar + productos[1].precio;
-          console.log(totalAPagar);
-          alert(
-            `Se agregó al carrito un ${aLlevar} con un valor de ${productos[1].precio}`
-          );
-          productos[1].stock-=1
-        }else{
-          alert("¡No hay stock de este producto!")
-        }
-        break;
-      case productos[2].nombre:
-        if(productos[2].stock != 0){
-          totalAPagar = totalAPagar + productos[2].precio;
-          console.log(totalAPagar);
-          alert(
-            `Se agregó al carrito un ${aLlevar} con un valor de ${productos[2].precio}`
-          );
-          productos[2].stock-=1
-        }else{
-          alert("¡No hay stock de este producto!")
-        }
-        break;
-      case productos[3].nombre:
-        if(productos[3].stock != 0){
-          totalAPagar = totalAPagar + productos[3].precio;
-          console.log(totalAPagar);
-          alert(
-            `Se agregó al carrito un ${aLlevar} con un valor de ${productos[3].precio}`
-          );
-          productos[3].stock-=1
-        }else{
-          alert("¡No hay stock de este producto!")
-        }
-        break;
-      case productos[4].nombre:
-        if(productos[4].stock != 0){
-          totalAPagar = totalAPagar + productos[4].precio;
-          alert(
-            `Se agregó al carrito un ${aLlevar} con un valor de ${productos[4].precio}`
-          );
-          productos[4].stock-=1
-        }else{
-          alert("¡No hay stock de este producto!")
-        }
-        break;
-      default:
-        alert("¡No tenemos ese articulo¡");
-        break;
-    }*/
-  } while (aLlevar != "");
+    })
+    
+  } while (aLlevar);
 }
 
 function pagoPorCuotas() {
@@ -165,6 +127,7 @@ function pagoPorCuotas() {
   } while (xCuotas != "");
 }
 /* FIN FUNCIONES */
+
 
 deposito();
 
