@@ -75,19 +75,22 @@ function deposito() {
     if (producto == undefined) {
       alert("No tenemos ese producto");
     }
-    productos.find((p) => {
-      if(aLlevar === p.nombre){
-        if(p.stock != 0){
-          totalAPagar = totalAPagar + p.precio;
+
+
+
+    for(const pro of productos){
+      if(aLlevar === pro.nombre){
+        if(pro.stock != 0){
+          totalAPagar = totalAPagar + pro.precio;
           alert(
-            `Se agregó al carrito un ${aLlevar} con un valor de ${p.precio}`
+            `Se agregó al carrito un ${aLlevar} con un valor de ${pro.precio}`
           );
-          p.stock -= 1;
+          pro.stock -= 1;
         } else {
           alert("¡No hay stock de este producto!");
         }
       }
-    })
+    }
   } while (aLlevar);
 }
 
