@@ -69,11 +69,11 @@ function deposito() {
     if (aLlevar == "salir") {
       break;
     }
-    for(const producto of productos){
-      if(producto.nombre != aLlevar){
-        alert("¡No tenemos ese producto!")
-      }
-      break
+
+    const producto = productos.find((p) => p.nombre == aLlevar);
+
+    if (producto == undefined) {
+      alert("No tenemos ese producto");
     }
     productos.find((p) => {
       if(aLlevar === p.nombre){
@@ -88,7 +88,6 @@ function deposito() {
         }
       }
     })
-    
   } while (aLlevar);
 }
 
