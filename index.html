@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/components/styles/bootstrap.css">
+    <link rel="stylesheet" href="/components/styles/style.css">
     <title>Document</title>
 </head>
-<body>
-    <h1>Simulador Interactivo</h1>
+
+<body id="gridArea">
+
+    <div class="header">
+        <div class="logoContainer">
+            <img src="/assets/header/Ferresur.png" alt="logo_ferreteria" class="ferreLogo">
+        </div>
+
+        <div class="searchBar">
+            <div class="searchIconContainer">
+                <img src="/assets/header/search.png" alt="" class="searchIcon">
+            </div>
+            <input type="text" class="searchInput" placeholder="¿Que árticulo estás buscando?">
+        </div>
+        <div class="headerItems">
+            <p>Categorias</p>
+            <p>Ubicación</p>
+            <p>Contacto</p>
+        </div>
+
+        <div class="shopCarButton">
+            Carrito
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="mainInfo">
+            <h1>En Ferresur podrás encontrar varias categorias en las que manejamos diferentes productos </h1>
+            <span>Vendemos las mejores herramientas de la marca Truper.</span>
+            <div class="exploreButton">
+                Explora las categorias
+            </div>
+        </div>
+        <div class="mainImage">
+            <div class="image">
+                <div class="imageContainer">
+                    <img src="/assets/main/taladroTruper.jpg" class="img">
+                </div>
+                <div class="imageInfo">
+                    <span class="tituloTaladro">Taladro Truper 1/2</span>
+                    <span class="precioTaladro">$145.000</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footerContainer">
+        <footer class="footer">
+            <p>Ferresur by JuanJoseVelez</p>
+        </footer>
+    </div>
+    <script src="/components/bootstrap.js"></script>
     <script src="/components/simuladorInteractivo.js"></script>
 </body>
+
 </html>

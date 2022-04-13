@@ -16,6 +16,12 @@ const productos = [
     departamento: "Herramientas",
   },
   {
+    nombre: "Taladro Dewalt",
+    precio: 145000,
+    stock: 0,
+    departamento: "Herramientas",
+  },
+  {
     nombre: "Linterna",
     precio: 5000,
     stock: 2,
@@ -40,6 +46,12 @@ const productos = [
     departamento: "Electricos",
   },
   {
+    nombre: "Panel de luz de incrustar",
+    precio: 14000,
+    stock: 0,
+    departamento: "Electricos",
+  },
+  {
     nombre: "Cemento 50kg",
     precio: 30000,
     stock: 10,
@@ -57,14 +69,50 @@ const productos = [
     stock: 2,
     departamento: "Construcción",
   },
+  {
+    nombre: "Pegacor",
+    precio: 25000,
+    stock: 0,
+    departamento: "Construcción",
+  },
 ];
 
 /* FUNCIONES */
+const sinStock = () => {
+  const producto = productos
+    .filter((p) => p.stock == 0)
+    .map((p) => p.nombre)
+    .join(" - ");
+  alert(
+    `¡ATENCIÓN! ⚠️\n Los siguientes productos no tienen stock en este momento:\n ${producto}`
+  );
+};
+const buscarPorDepartamento = () => {
+  do {
+    xDepartamento = prompt(
+      "¿Que árticulo estás buscando?\n Puedes conocerlo a través de nuestros departamentos, los cuales son\n (1) Herramientas\n (2) Electricos\n (3) Construcción\n Escribe salir para elegir los articulos a comprar"
+    );
+    if (xDepartamento == "salir") {
+      break;
+    }
+    const producto = productos.find((p) => p.departamento == xDepartamento)
+    console.log(producto);
+    if (producto == undefined) {
+      alert("No tenemos esa categoria");
+    }
 
+    for (const pro of productos) {
+      if (pro.departamento == xDepartamento) {
+        // console.log(`${p.nombre} tiene un valor de ${p.precio}`)
+        alert(`${pro.nombre} tiene un valor de ${pro.precio}\n`);
+      }
+    }
+  } while (xDepartamento != "");
+};
 function deposito() {
   do {
     aLlevar = prompt(
-      "¿Que articulo llevarás? 🛒(Escribe 'salir' si deseas dejar de comprar) \n 1) Martillo \n 2) Linterna \n 3) Pala \n 4) Destornillador \n 5) Bombillo LED."
+      "¿Que articulo llevarás? 🛒(Escribe 'salir' si deseas dejar de comprar) \n 1) Martillo \n 2) Linterna \n 3) Pala \n 4) Destornillador \n 5) Bombillo LED\n 6) Taladro Dewalt\n 7) Pegacor\n 8) Panel de luz de incrustar."
     );
     if (aLlevar == "salir") {
       break;
@@ -76,11 +124,9 @@ function deposito() {
       alert("No tenemos ese producto");
     }
 
-
-
-    for(const pro of productos){
-      if(aLlevar === pro.nombre){
-        if(pro.stock != 0){
+    for (const pro of productos) {
+      if (aLlevar === pro.nombre) {
+        if (pro.stock != 0) {
           totalAPagar = totalAPagar + pro.precio;
           alert(
             `Se agregó al carrito un ${aLlevar} con un valor de ${pro.precio}`
@@ -129,8 +175,8 @@ function pagoPorCuotas() {
   } while (xCuotas != "");
 }
 /* FIN FUNCIONES */
-
-
+sinStock();
+buscarPorDepartamento();
 deposito();
 
 let qs;
