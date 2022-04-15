@@ -155,7 +155,30 @@
     border: 1px solid rgb(32, 129, 226);
     color: rgb(255, 255, 255);
 }
-
+/* CARRITO */
+#tituloCarrito{
+    text-align: center;
+    background-color: #2081E2;
+    width: 100%;
+    color:white;
+}
+#totalCarrito{
+    font-weight: bold;
+}
+.mostrandoCarrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+#carrito{
+    text-align: center;
+    background-color: #FAFAFA;
+    margin: 10px;
+    width: 30rem;
+    color:black;;
+}
 /* FOOTER */
 .footerContainer{
     background-color: #A6A6A6;

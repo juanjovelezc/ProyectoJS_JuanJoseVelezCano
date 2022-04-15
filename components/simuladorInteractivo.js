@@ -5,6 +5,11 @@ let totalAPagar = 0;
 let aLlevar;
 let xDepartamento;
 let totalxCuotas;
+const mostrandoCarrito = document.getElementById("carrito")
+const tituloCarrito = document.getElementById("tituloCarrito")
+const totalCarrito = document.getElementById("totalCarrito")
+
+let htmlCarrito = ''
 /*====================*/
 
 /* ARRAY */
@@ -76,6 +81,7 @@ const productos = [
     departamento: "Construcción",
   },
 ];
+const carrito = [];
 
 /* FUNCIONES */
 const sinStock = () => {
@@ -92,12 +98,12 @@ const buscarPorDepartamento = () => {
     xDepartamento = prompt(
       "¿Que árticulo estás buscando?\n Puedes conocerlo a través de nuestros departamentos, los cuales son\n (1) Herramientas\n (2) Electricos\n (3) Construcción\n Escribe salir para elegir los articulos a comprar"
     );
-    if (xDepartamento == "salir") {
+    if (xDepartamento === "salir") {
       break;
     }
-    const producto = productos.find((p) => p.departamento == xDepartamento)
+    const producto = productos.find((p) => p.departamento == xDepartamento);
     console.log(producto);
-    if (producto == undefined) {
+    if (producto === undefined) {
       alert("No tenemos esa categoria");
     }
 
@@ -112,15 +118,18 @@ const buscarPorDepartamento = () => {
 function deposito() {
   do {
     aLlevar = prompt(
-      "¿Que articulo llevarás? 🛒(Escribe 'salir' si deseas dejar de comprar) \n 1) Martillo \n 2) Linterna \n 3) Pala \n 4) Destornillador \n 5) Bombillo LED\n 6) Taladro Dewalt\n 7) Pegacor\n 8) Panel de luz de incrustar."
+      "¿Que articulo llevarás? 🛒(Escribe 'salir' si deseas dejar de comprar) \n 1) Martillo \n 2) Linterna \n 3) Pala \n 4) Destornillador \n 5) Bombillo LED\n 6) Taladro Dewalt\n 7) Pegacor\n 8) Panel de luz de incrustar\n Escribe 'pagar' para pagar los productos seleccionados."
     );
-    if (aLlevar == "salir") {
+    if (aLlevar === "pagar") {
+      pregunta();
+      break;
+    } else if (aLlevar === "salir") {
       break;
     }
 
     const producto = productos.find((p) => p.nombre == aLlevar);
 
-    if (producto == undefined) {
+    if (producto === undefined) {
       alert("No tenemos ese producto");
     }
 
@@ -132,6 +141,7 @@ function deposito() {
             `Se agregó al carrito un ${aLlevar} con un valor de ${pro.precio}`
           );
           pro.stock -= 1;
+          carrito.push(pro);
         } else {
           alert("¡No hay stock de este producto!");
         }
@@ -143,7 +153,7 @@ function deposito() {
 function pagoPorCuotas() {
   let xCuotas;
   do {
-    xCuotas = prompt("¿Deseas pagar a cuotas?");
+    xCuotas = prompt("¿Deseas pagar a cuotas? (si o no)");
     if (xCuotas === "si") {
       let cuotas = parseInt(prompt("¿Cuantas cuotas?"));
 
@@ -174,23 +184,65 @@ function pagoPorCuotas() {
     }
   } while (xCuotas != "");
 }
-/* FIN FUNCIONES */
-sinStock();
-buscarPorDepartamento();
-deposito();
+const pregunta = () => {
+  let qs;
+  do {
+    qs = prompt("¿Deseas seguir comprando? (si o no) 🛍️").toLowerCase();
+    if (qs === "si") {
+      deposito();
+      break;
+    } else if (qs === "no") {
+      pagoPorCuotas();
+      break;
+    } else {
+      alert("¡La respuesta debe ser si o no! ⚠️");
+    }
+  } while (qs != "");
+};
 
-let qs;
+/* FIN FUNCIONES */
+let opciones;
 
 do {
-  qs = prompt("¿Deseas seguir comprando? 🛍️").toLowerCase();
-  if (qs == "si") {
-    deposito();
-    pagoPorCuotas();
-    break;
-  } else if (qs == "no") {
-    pagoPorCuotas();
-    break;
-  } else {
-    alert("¡La respuesta debe ser si o no! ⚠️");
+  opciones = parseInt(
+    prompt(
+      "FERRETERIA | MENU DE OPCIONES \n 1) Mostrar todos los productos\n 2) Mostrar categorias\n 3) Mostrar carrito \n 4) salir"
+    )
+  );
+  switch (opciones) {
+    case 1:
+      sinStock();
+      deposito();
+      break;
+    case 2:
+      buscarPorDepartamento();
+      break;
+    case 3:
+      const mostrarCarrito = carrito.map((c) => c.nombre).join("\n");
+      const mostrarTotal = carrito.reduce((a, b) => a + b.precio, 0);
+      alert(
+        `Los productos a llevar son: \n ${mostrarCarrito} \n El total a pagar es de ${mostrarTotal} `
+      );
+      break;
+    case 4:
+      break;
+    default:
+      alert("Esa opción no existe");
+      break;
   }
-} while (qs != "");
+} while (opciones != 4);
+
+console.log(carrito);
+
+/* Mapeando el carrito en el DOM */
+carrito.map(car => {
+  htmlCarrito+= `
+      Articulo:${car.nombre}        |         Precio: ${car.precio}\n
+      <br>               
+  `
+})
+tituloCarrito.innerHTML = `<h3>Los siguientes articulos son los que están en tu carrito</h3>`
+mostrandoCarrito.innerHTML = htmlCarrito
+totalCarrito.innerHTML = `El total a pagar es de $${totalAPagar}`
+console.log(htmlCarrito)
+
