@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,12 @@
     <link rel="stylesheet" href="/components/styles/style.css">
     <title>Productos | Ferreteria</title>
 </head>
+
 <body>
     <!--HEADER-->
     <div class="header">
         <div class="logoContainer">
-            <a href="/index.html"><img src="/assets/header/Ferresur.png" alt="logo_ferreteria" class="ferreLogo"></a> 
+            <a href="/index.html"><img src="/assets/header/Ferresur.png" alt="logo_ferreteria" class="ferreLogo"></a>
         </div>
 
         <div class="searchBar">
@@ -22,40 +24,60 @@
             <input type="text" class="searchInput" placeholder="¿Que árticulo estás buscando?">
         </div>
         <div class="headerItems">
-            <a href="/pages/productos.html"><p>Productos</p></a>
-            <a href=""><p>Categorias</p></a>
-            <a href=""><p>Ubicación</p></a>
-            <a href=""><p>Contacto</p></a>
+            <a href="/pages/productos.html">
+                <p>Productos</p>
+            </a>
+            <a href="">
+                <p>Categorias</p>
+            </a>
+            <a href="">
+                <p>Ubicación</p>
+            </a>
+            <a href="">
+                <p>Contacto</p>
+            </a>
         </div>
 
         <div class="shopCarButton">
-            Carrito
+            <button id="btnCarrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Carrito <div id="lenght"></div></button>
         </div>
     </div>
     <!--PRODUCTOS-->
-        <div class="productos__carrito">
-            <div id="containerProductos">
+    <div class="productos__carrito">
+        <div id="containerProductos">
 
+        </div>
+        <br>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Carrito de compras</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
             </div>
-            <br>
-            <div class="carrito">
-                <div class="carritoTitulo">Carrito de compras</div>
-                <div id="containerCarrito">
-                
+            <div class="offcanvas-body">
+                <div id="carrito">
+                    <div id="containerCarrito">
+                        <div id="alerta" class="alert alert-danger" role="alert">
+                            
+                          </div>
+                    </div>
+                    <div id="carritoTotal"></div>
                 </div>
-                <div id="carritoTotal"></div>
             </div>
         </div>
+    </div>
 
-    
+
     <!--FOOTER-->
     <div class="footerContainer">
         <footer class="footer">
             <p>Ferresur by JuanJoseVelez</p>
         </footer>
     </div>
-
+    <script src="/data/productosBD.js"></script>
     <script src="/components/bootstrap.js"></script>
     <script src="/components/simuladorInteractivo.js"></script>
 </body>
+
 </html>
