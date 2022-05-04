@@ -50,7 +50,7 @@ function quitarProducto(id) {
     Toastify({
       text: `¡Se eliminó el producto del carrito!`,
       className: "info",
-      position: "right",
+      position: "center",
       color: "white",
       style: {
         background: "red",
@@ -122,6 +122,7 @@ function addToCar(productoId) {
 
 /* Mostrar productos en el DOM*/
 function mostrarProducts() {
+
   productos.map((p) => {
     const productCard = document.createElement("div");
     productCard.classList.add("productCard");
