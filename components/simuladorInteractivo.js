@@ -18,7 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   lenghtCarrito();
 });
 
+const myData = fetch('/data/productosBD.json')
+              .then(resp => resp.json())
+              .then(data => console.log(data))
 
+console.log(myData)
 /* ARRAY CARRITO DE COMPRAS */
 let carrito = [];
 
@@ -36,9 +40,12 @@ function lenghtCarrito() {
 }
 
 /* Función que elimina un producto del carrito */
-function quitarProducto(id) {
+const quitarProducto = async (id) => {
+  const resp = await fetch('/data/productosBD.json')
+  const data = await resp.json()
+
   let productoAEliminar = carrito.find((p) => p.id === id);
-  let SumarStock = productos.find(p => p.id === id)
+  let SumarStock = data.find(p => p.id === id)
 
   SumarStock.stock++
   productoAEliminar.cantidad--;
@@ -69,16 +76,18 @@ function calcularTotal() {
 }
 
 /* Función que agrega un producto al carrito */
-function addToCar(productoId) {
+const addToCar= async (productoId) => {
+  const resp = await fetch('/data/productosBD.json')
+  const data = await resp.json()
   let productoEnCarrito = carrito.find((p) => p.id === productoId);
-  for (const p of productos) {
+  for (const p of data) {
     if (p.id === productoId) {
       if (p.stock != 0) {
         p.stock -= 1;
         if (productoEnCarrito) {
           productoEnCarrito.cantidad += 1;
         } else {
-          const { id, nombre, precio, img } = productos.find(
+          const { id, nombre, precio, img } = data.find(
             (p) => p.id === productoId
           );
           carrito.push({
@@ -88,28 +97,33 @@ function addToCar(productoId) {
             img: img,
             cantidad: 1,
           });
+          setTimeout(() => {
+            Toastify({
+              text: `¡Agregaste al carrito un ${p.nombre}!`,
+              className: "info",
+              position: "center",
+              color: "white",
+              style: {
+                background: "green",
+              }
+            }).showToast();
+          }, 200);
 
+
+        }
+      } else {
+        setTimeout(() => {
           Toastify({
-            text: `¡Agregaste al carrito un ${p.nombre}!`,
+            text: `¡No hay más stock de ${p.nombre}!`,
             className: "info",
             position: "center",
             color: "white",
             style: {
-              background: "green",
+              background: "red",
             }
           }).showToast();
+        }, 200);
 
-        }
-      } else {
-        Toastify({
-          text: `¡No hay más stock de ${p.nombre}!`,
-          className: "info",
-          position: "center",
-          color: "white",
-          style: {
-            background: "red",
-          }
-        }).showToast();
       }
     }
   }
@@ -121,9 +135,11 @@ function addToCar(productoId) {
 
 
 /* Mostrar productos en el DOM*/
-function mostrarProducts() {
+const mostrarProducts = async () => {
+  const resp = await fetch('/data/productosBD.json')
+  const data = await resp.json()
 
-  productos.map((p) => {
+  data.map((p) => {
     const productCard = document.createElement("div");
     productCard.classList.add("productCard");
 
