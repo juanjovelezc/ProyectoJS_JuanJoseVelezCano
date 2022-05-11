@@ -16,13 +16,21 @@ document.addEventListener("DOMContentLoaded", () => {
   mostrarCar(carrito);
   mostrarProducts();
   lenghtCarrito();
-});
 
+
+});
+let dataDB = []
 const myData = fetch('/data/productosBD.json')
-              .then(resp => resp.json())
-              .then(data => console.log(data))
+.then(resp => resp.json())
+.then(data => {
+  dataDB = data
+  mostrarProducts(dataDB)
+})
+
+
 
 console.log(myData)
+
 /* ARRAY CARRITO DE COMPRAS */
 let carrito = [];
 
@@ -40,13 +48,10 @@ function lenghtCarrito() {
 }
 
 /* Función que elimina un producto del carrito */
-const quitarProducto = async (id) => {
-  const resp = await fetch('/data/productosBD.json')
-  const data = await resp.json()
+function quitarProducto(id)  {
 
   let productoAEliminar = carrito.find((p) => p.id === id);
-  let SumarStock = data.find(p => p.id === id)
-
+  let SumarStock = dataDB.find(p => p.id === id)
   SumarStock.stock++
   productoAEliminar.cantidad--;
 
@@ -76,18 +81,17 @@ function calcularTotal() {
 }
 
 /* Función que agrega un producto al carrito */
-const addToCar= async (productoId) => {
-  const resp = await fetch('/data/productosBD.json')
-  const data = await resp.json()
+function addToCar(productoId) {
+
   let productoEnCarrito = carrito.find((p) => p.id === productoId);
-  for (const p of data) {
+  for (const p of dataDB) {
     if (p.id === productoId) {
       if (p.stock != 0) {
         p.stock -= 1;
         if (productoEnCarrito) {
           productoEnCarrito.cantidad += 1;
         } else {
-          const { id, nombre, precio, img } = data.find(
+          const { id, nombre, precio, img } = dataDB.find(
             (p) => p.id === productoId
           );
           carrito.push({
@@ -135,11 +139,10 @@ const addToCar= async (productoId) => {
 
 
 /* Mostrar productos en el DOM*/
-const mostrarProducts = async () => {
-  const resp = await fetch('/data/productosBD.json')
-  const data = await resp.json()
+function mostrarProducts (productsData = []) {
 
-  data.map((p) => {
+
+  productsData.map((p) => {
     const productCard = document.createElement("div");
     productCard.classList.add("productCard");
 
