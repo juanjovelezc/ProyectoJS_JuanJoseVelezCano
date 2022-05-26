@@ -1,0 +1,19 @@
+[
+    {
+        "id_categoria":0,
+        "nombre": "Herramientas",
+        "img": "https://th.bing.com/th/id/OIP.TcOYVBGrsVm08DzsbqhJnwHaKx?pid=ImgDet&rs=1"
+        
+    },
+    {
+        "id_categoria":1,
+        "nombre": "Electricos",
+        "img": "https://th.bing.com/th/id/R.9c344ec30324165addb759efeb39ec5e?rik=%2bYJ8qmWQ3tHOBA&pid=ImgRaw&r=0"
+    },
+    {
+        "id_categoria":2,
+        "nombre": "Construcción",
+        "img": "https://viapais.com.ar/resizer/NcMmxb8Y9302l6VcsAQysDoSfJs=/982x551/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/6XAGPWS2HJCOHBOIED7XEUAAMY.jpg"
+
+    }
+]

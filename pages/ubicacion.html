@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/components/styles/bootstrap.css" />
+    <link rel="stylesheet" href="/components/styles/style.css" />
+    <title>Ubicación | Ferretería</title>
+  </head>
+  <body>
+    <!--HEADER-->
+    <div class="header">
+      <div class="logoContainer">
+        <a href="/index.html"
+          ><img
+            src="/assets/header/Ferresur.png"
+            alt="logo_ferreteria"
+            class="ferreLogo"
+        /></a>
+      </div>
+
+      <div class="searchBar">
+        <div class="searchIconContainer">
+          <img src="/assets/header/search.png" alt="" class="searchIcon" />
+        </div>
+        <input
+          type="text"
+          class="searchInput"
+          placeholder="¿Que árticulo estás buscando?"
+        />
+      </div>
+      <div class="headerItems">
+        <a href="/pages/productos.html">
+          <p>Productos</p>
+        </a>
+        <a href="/pages/categorias.html">
+          <p>Categorias</p>
+        </a>
+        <a href="/pages/ubicacion.html">
+          <p>Ubicación</p>
+        </a>
+        <a href="/pages/contacto.html">
+          <p>Contacto</p>
+        </a>
+      </div>
+
+      <div class="shopCarButton">
+        <button
+          id="btnCarrito"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          Carrito
+          <div id="lenght"></div>
+        </button>
+      </div>
+    </div>
+    <!--Ubicacion-->
+    <div class="titulo">
+      <h1>UBICACIÓN GEOGRAFICA</h1>
+    </div>
+
+    <div class="map_ubicacion">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.69937750035!2d-75.65125273212543!3d6.244369472370519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1640642601496!5m2!1ses!2sco"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+    <!--Direccion-->
+    <div class="seccionDireccion">
+      <div class="direccion">
+        <h3>Dirección</h3>
+        <h4>
+          Cr 99 #99 Sur 99<br />
+          Medellín, Colombia
+        </h4>
+        <h3>Teléfono</h3>
+        <h4>999-999-99</h4>
+      </div>
+      <!--Horario-->
+      <div class="direccionHorario">
+        <table>
+          <th>Lunes a sabado desde:</th>
+          <tr>
+            <td>7 AM hasta las 7 PM</td>
+          </tr>
+
+          <th>Domingos desde:</th>
+          <tr>
+            <td>7 AM hasta la 1 PM</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!--FOOTER-->
+    <div class="footerContainer">
+      <footer class="footer">
+        <p>Ferresur by JuanJoseVelez</p>
+      </footer>
+    </div>
+    <script src="/components/bootstrap.js"></script>
+  </body>
+</html>

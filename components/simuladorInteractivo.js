@@ -182,7 +182,7 @@ function mostrarProducts (productsData = []) {
     productBtn.textContent = "Agregar";
     productBtn.onclick = () => {
       addToCar(p.id);
-
+      
       p.stock === 0 ? stock.textContent = `Stock: ${p.stock}` : stock.textContent = `Stock: ${p.stock}`
 
     };

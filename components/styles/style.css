@@ -1,18 +1,19 @@
-*{
+* {
     margin: 0;
-    padding:0;
-  }
-  
-  body {
+    padding: 0;
+}
+
+body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
+}
+
 /* HEADER */
-.header{
+.header {
     color: white;
     height: 100px;
     display: flex;
@@ -21,18 +22,18 @@
     background-color: #A6A6A6;
 }
 
-.header > div {
+.header>div {
     margin: 10px;
 }
 
-.ferreLogo{
+.ferreLogo {
     width: 200px;
 }
 
-.searchBar{
+.searchBar {
     background-color: #D9D9D9;
     height: 50px;
-    flex:1;
+    flex: 1;
     display: flex;
     border-radius: 50px;
     align-items: center;
@@ -42,22 +43,22 @@
     margin: 10px;
 }
 
-.searchInput{
+.searchInput {
     background-color: transparent;
-    border:none;
+    border: none;
     width: 100%;
     outline: none;
-    color:white;
+    color: white;
     font-size: 16px;
 }
 
-.headerItems{
+.headerItems {
     display: flex;
 }
 
-.headerItems > a > p {
+.headerItems>a>p {
     margin: 10px;
-    
+
 }
 
 .headerItems a {
@@ -66,89 +67,93 @@
 
 }
 
-#btnCarrito{
+#btnCarrito {
     background: linear-gradient(to right, #59f9b7, #66feea);
     padding: 15px 40px;
     border-radius: 50px;
-    color:black
+    color: black
 }
 
 /* MAIN */
-.main{
+.main {
     background-image: url("/assets/main/mainBackground.jpg");
     height: 586px;
     background-size: cover;
     background-position: center center;
     display: flex;
-    
+
 }
 
-.mainInfo{
+.mainInfo {
     font-family: Poppins, sans-serif;
-    background-color: rgb(32, 34, 37,0.6);
-    
+    background-color: rgb(32, 34, 37, 0.6);
+
     padding-left: 30px;
-    display:flex;
+    display: flex;
     flex-flow: column;
     justify-content: center;
 }
 
-.mainInfo > h1{
-    color:white;
+.mainInfo>h1 {
+    color: white;
     font-weight: bold;
     margin: 0px 10px 0px 0px;
 }
 
-.mainInfo > span{
+.mainInfo>span {
     color: #8a939b;
     font-size: 24px;
     margin: 20px 0px 0px;
-    display:flex;
+    display: flex;
     text-align: center;
-    }
+}
 
-.mainImage{
-    background-color: rgb(32, 34, 37,0.6);
+.mainImage {
+    background-color: rgb(32, 34, 37, 0.6);
 
 }
 
-.image{
+.image {
     background-color: white;
     margin-top: 50px;
     margin-right: 30px;
     border-radius: 10px;
 }
 
-.imageContainer{
- padding-top: 50px;
- padding-right: 30px;
- 
+.imageContainer {
+    padding-top: 50px;
+    padding-right: 30px;
+
 }
-.img{
+
+.img {
     object-fit: cover;
-    width:100%;
+    width: 100%;
     height: 100%;
-   
+
 }
- .imageInfo{
-     background-color: #D9D9D9;
-     display: flex;
-     flex-flow: column;
 
- }
- .tituloTaladro{
-     font-weight: bold;
-     color: white;
-     padding-left: 5px;
- }
- .precioTaladro{
-     color: #1868B7;
-     padding-left: 5px;
-     font-weight: bold;
- }
+.imageInfo {
+    background-color: #D9D9D9;
+    display: flex;
+    flex-flow: column;
 
-.exploreButton{
-    display:flex;
+}
+
+.tituloTaladro {
+    font-weight: bold;
+    color: white;
+    padding-left: 5px;
+}
+
+.precioTaladro {
+    color: #1868B7;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.exploreButton {
+    display: flex;
     width: 15rem;
     align-items: center;
     border-radius: 10px;
@@ -161,12 +166,14 @@
     border: 1px solid rgb(32, 129, 226);
     color: rgb(255, 255, 255);
 }
+
 /* PAGINA PRODUCTOS */
-.productos__carrito{
+.productos__carrito {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
 }
-#carrito{
+
+#carrito {
     font-size: 23px;
     border-radius: 10px;
     border: solid 1px grey;
@@ -174,22 +181,27 @@
     width: auto;
 
 }
-.carritoTitulo{
-text-align: center;
-font-weight: bold;
+
+.carritoTitulo {
+    text-align: center;
+    font-weight: bold;
 }
-.listaCarrito{
+
+.listaCarrito {
     display: flex;
     justify-content: space-evenly;
 }
-.prodImg{
+
+.prodImg {
     height: 40px;
     width: 40px;
 }
-.productoEnCarrito{
+
+.productoEnCarrito {
     display: flex;
 }
-.btnEliminar{
+
+.btnEliminar {
     background-color: red;
     color: white;
     margin: 5px;
@@ -197,56 +209,194 @@ font-weight: bold;
     font-size: 10px;
     border-radius: 2px;
 }
-.precioProductoenCarrito{
-    color:grey;
+
+.precioProductoenCarrito {
+    color: grey;
 }
-.total{
+
+.total {
     display: flex;
     justify-content: space-evenly;
     font-weight: bold;
 
 }
-#containerProductos{
-    display:flex;
+
+#containerProductos {
+    display: flex;
     flex-flow: wrap;
 }
-.productCard{
+
+.productCard {
     display: flex;
     flex-direction: column;
     background-color: #E6E6E6;
-    border:solid black 2px;
+    border: solid black 2px;
     border-radius: 5px;
     width: 245px;
     margin: 1rem;
 }
-.productImage > img{
-  width: 241px;
+
+.productImage>img {
+    width: 241px;
 }
-.productInfo{
+
+.productInfo {
     padding: 6px;
 }
-.productName{
+
+.productName {
     font-weight: bold;
 }
-.productBtn{
-  background-color: #2081E2;
-  color:white;
-  padding: 5px;
-  border-radius: 10px;
-  width: 9rem;
-  margin: 5px;
-  font-weight: bold;
+
+.productBtn {
+    background-color: #2081E2;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    width: 9rem;
+    margin: 5px;
+    font-weight: bold;
 }
 
 /* FOOTER */
-.footerContainer{
+.footerContainer {
     background-color: #A6A6A6;
     height: 4rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.footer{
+
+.footer {
     font-weight: bold;
-    color:white;
+    color: white;
+}
+
+
+/* CATEGORIAS */
+
+#containerCategorias {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+
+.categoryCard {
+    display: flex;
+    flex-direction: column;
+    background-color: #E6E6E6;
+    border: solid black 2px;
+    border-radius: 5px;
+    width: 245px;
+    margin: 1rem;
+}
+
+.imagen-categoria {
+    width: 241px;
+    height: 300px;
+
+}
+
+.categoryInfo {
+    padding: 6px;
+}
+
+.categoryInfo>h3 {
+    font-weight: bold;
+}
+
+.categoryBtn {
+    background-color: #2081E2;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    width: 9rem;
+    margin: 5px;
+    font-weight: bold;
+}
+
+/* Ubicación */
+
+/* UBICACION */
+.titulo {
+    display: flex;
+    justify-content: center;
+    border: solid 0px white;
+    background-color: #A6A6A6;
+    width: auto;
+
+}
+
+.titulo h1 {
+    background-color: #D9D9D9;
+    text-align: center;
+    margin: 10px;
+    color: white;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.map_ubicacion {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+}
+
+.seccionDireccion {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.direccion {
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+    border: solid 1px gray;
+    padding: 10px;
+    background-color: white;
+    width: 40%;
+    text-align: center;
+
+}
+
+.direccionHorario {
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 1px gray;
+    padding: 10px;
+    background-color: white;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+/* FORMULARIO CONTACTO*/
+.contacto {
+    display: flex;
+    justify-content: center;
+    grid-area: contacto;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    grid-area: formulario;
+}
+
+.formulario form {
+    border: solid 0.5px grey;
+    padding: 20px;
+
+}
+
+.formulario form hr {
+    margin-top: 10px;
+    color: grey;
 }

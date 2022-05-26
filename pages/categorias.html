@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/components/styles/bootstrap.css" />
+    <link rel="stylesheet" href="/components/styles/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <title>Categorias | Ferreteria</title>
+  </head>
+  <body>
+    <!--HEADER-->
+    <div class="header">
+      <div class="logoContainer">
+        <a href="/index.html"
+          ><img
+            src="/assets/header/Ferresur.png"
+            alt="logo_ferreteria"
+            class="ferreLogo"
+        /></a>
+      </div>
+
+      <div class="searchBar">
+        <div class="searchIconContainer">
+          <img src="/assets/header/search.png" alt="" class="searchIcon" />
+        </div>
+        <input
+          type="text"
+          class="searchInput"
+          placeholder="¿Que árticulo estás buscando?"
+        />
+      </div>
+      <div class="headerItems">
+        <a href="/pages/productos.html">
+          <p>Productos</p>
+        </a>
+        <a href="/pages/categorias.html">
+          <p>Categorias</p>
+        </a>
+        <a href="/pages/ubicacion.html">
+          <p>Ubicación</p>
+        </a>
+        <a href="/pages/contacto.html">
+          <p>Contacto</p>
+        </a>
+      </div>
+
+      <div class="shopCarButton">
+        <button
+          id="btnCarrito"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          Carrito
+          <div id="lenght"></div>
+        </button>
+      </div>
+    </div>
+    <!--CATEGORIAS-->
+    <div class="categorias">
+        <div id="containerCategorias">
+                
+        </div>
+    </div>
+    <!--FOOTER-->
+    <div class="footerContainer">
+      <footer class="footer">
+        <p>Ferresur by JuanJoseVelez</p>
+      </footer>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/components/bootstrap.js"></script>
+    <script src="/data/categorias.json"></script>
+    <script src="/data/productosBD.json"></script>
+    <script src="/components/categorias.js"></script>
+  </body>
+</html>
